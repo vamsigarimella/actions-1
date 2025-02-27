@@ -9,11 +9,15 @@ jobs:
             - name: checkout repo
               uses: actions/checkout@v4
 
-            - name: welcome message
-              run: echo "welcome"
+            - name: welcome message, cat readme
+              run: | #pipe is used to run multiple commands in 1line.
+                 echo "welcome"
+                 ls -lrt
+                 cat README.md
+                  
             
-            - name: list files
-              run: ls
+            # - name: list files
+            #   run: ls
 
-            - name: read file
-              run: cat README.md
+            # - name: read file
+            #   run: cat README.md
