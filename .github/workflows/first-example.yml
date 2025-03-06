@@ -26,12 +26,15 @@ jobs:
         run: |
           chmod o+w README.md
           ls -l README.md
+      
+      - name: list the file
+        run: ls -ltr
 
-      - name: upload new file
-        uses: actions/upload-artifact@v3
-        with:
-          name: README-file
-          path: README.md
+      # - name: upload new file
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: README-file
+      #     path: README.md
 
       # Uncomment and modify the following section if needed
       # - name: edit readme file
