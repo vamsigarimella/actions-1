@@ -30,7 +30,7 @@ jobs:
       - name: upload new file
         uses: actions/upload-artifact@v3
         with:
-          name: README file
+          name: README-file
           path: README.md
 
       # Uncomment and modify the following section if needed
@@ -42,6 +42,12 @@ jobs:
     needs: first-job-2
     runs-on: ubuntu-latest
     steps:
+      - name: download new file
+        uses: actions/download-artifact@v3
+        with:
+          name: README-file
+          path: README.md
+
       - name: list the file
         run: ls -ltr
 
