@@ -3,46 +3,51 @@ name: first workflow
 on: push
 
 jobs:
-    first-job-1:
-        runs-on: ubuntu-latest
-        steps:
-            - name: checkout repo
-              uses: actions/checkout@v4
+  first-job-1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
 
-            - name: welcome message, cat readme
-              run: | #pipe is used to run multiple commands in 1line.
-                 echo "welcome"
-                 ls -lrt
-                 cat README.md
-    first-job-2:
-      needs: first-job-1
-      runs-on: ubuntu-latest
-      steps:
-        - name: checkout repo
-          uses: actions/checkout@v4
-        - name: add permissions to file
-          run: |-
+      - name: welcome message, cat readme
+        run: |  # Pipe is used to run multiple commands in one line.
+          echo "welcome"
+          ls -lrt
+          cat README.md
+
+  first-job-2:
+    needs: first-job-1
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+
+      - name: add permissions to file
+        run: |
           chmod o+w README.md
           ls -l README.md
-        - name: upload new file
-          uses: actions/upload-artifact@v3
-          with:
-            name: README file
-            path: README.md
-        # - name: edit readme file
-        #   run: |-
-        #   mv README.md readme.md
-    first-job-3:
-      needs: first-job-2
-      runs-on: ubuntu-latest
-      steps:
-        - name: list the file
-          run: ls -ltr
 
-                  
-            
-            # - name: list files
-            #   run: ls
+      - name: upload new file
+        uses: actions/upload-artifact@v3
+        with:
+          name: README file
+          path: README.md
 
-            # - name: read file
-            #   run: cat README.md
+      # Uncomment and modify the following section if needed
+      # - name: edit readme file
+      #   run: |
+      #     mv README.md readme.md
+
+  first-job-3:
+    needs: first-job-2
+    runs-on: ubuntu-latest
+    steps:
+      - name: list the file
+        run: ls -ltr
+
+      # Uncomment and modify the following sections if needed
+      # - name: list files
+      #   run: ls
+
+      # - name: read file
+      #   run: cat README.md
