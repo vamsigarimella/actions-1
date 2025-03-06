@@ -15,22 +15,22 @@ jobs:
                  ls -lrt
                  cat README.md
     first-job-2:
+      needs: first-job-1
       runs-on: ubuntu-latest
       steps:
         - name: checkout repo
           uses: actions/checkout@v4
         - name: add permissions to file
-          run: |-
-          chmod o+w README.md
+          run: chmod o+w README.md
         # - name: edit readme file
         #   run: |-
         #   mv README.md readme.md
     first-job-3:
+      needs: first-job-2
       runs-on: ubuntu-latest
       steps:
         - name: list the file
-          run: |
-          ls -ltr
+          run: ls -ltr
 
                   
             
