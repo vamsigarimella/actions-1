@@ -21,7 +21,7 @@ jobs:
         - name: checkout repo
           uses: actions/checkout@v4
         - name: add permissions to file
-          run: |
+          run: |-
           chmod o+w README.md
           ls -l README.md
         - name: upload new file
