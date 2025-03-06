@@ -24,7 +24,7 @@ jobs:
 
       - name: add permissions to file
         run: |
-          chmod o+w README.md
+          chmod 777 README.md
           ls -l README.md
       
       - name: list the file
