@@ -43,8 +43,8 @@ jobs:
         uses: actions/checkout@v4
       - name: rename the file
         run: |
-        ls -lrt
-        mv README.md readme.md
+          ls -lrt
+          mv README.md readme.md
 
       # Uncomment and modify the following sections if needed
       # - name: list files
