@@ -39,14 +39,12 @@ jobs:
     needs: first-job-2
     runs-on: ubuntu-latest
     steps:
-      - name: download new file
-        uses: actions/download-artifact@v3
-        with:
-          name: README-file
-          path: README.md
-
-      - name: list the file
-        run: ls -ltr
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: rename the file
+        run: |-
+        ls -lrt
+        mv README.md readme.md
 
       # Uncomment and modify the following sections if needed
       # - name: list files
