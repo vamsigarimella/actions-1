@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: README
-          path: readme.md
+          path: README.md
 
 
   first-job-3:
