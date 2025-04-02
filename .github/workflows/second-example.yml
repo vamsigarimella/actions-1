@@ -1,0 +1,24 @@
+name: workflow 2
+
+on: push
+
+jobs:
+    workflow_job_2:
+        runs-on: ubuntu-latest
+        steps:
+        - name: welcome messgae
+          run: echo "welcome!"
+
+        - name: list the files in repo.
+          run: pwd
+
+        - name: checkout branch
+          uses: actions/checkout@v4
+        
+        - name: list the files in repo.
+          run: ls -lrt
+
+
+
+
+  
