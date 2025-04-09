@@ -14,10 +14,12 @@ jobs:
 
         - name: checkout branch
           uses: actions/checkout@v4
-        
-        - name: list the files in repo.
-          run: ls -lrt
-
+          with:
+            path: /README.md
+ 
+        - run:
+            ls -lrt
+            cat README.md
 
 
 
