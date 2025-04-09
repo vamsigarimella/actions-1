@@ -15,7 +15,7 @@ jobs:
         - name: checkout branch
           uses: actions/checkout@v4
           with:
-            path: /README.md
+            ref: main
  
         - run:
             ls -lrt
